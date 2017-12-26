@@ -444,6 +444,24 @@ function buildType(ref, type) {
         push("});");
     });
 
+    push("");
+    pushComment([
+        "Type lookup to make this fit Message interface.",
+        "@member {$protobuf.Type} $type",
+        "@memberof " + exportName(type),
+        "@instance"
+    ]);
+    push(escapeName(type.name) + ".prototype.$type = " + escapeName(type.name));
+
+    push("");
+    pushComment([
+        "Type lookup to make this fit Message interface.",
+        "@member {$protobuf.Type} $type",
+        "@memberof " + exportName(type),
+        "@static"
+    ]);
+    push(escapeName(type.name) + ".$type = " + escapeName(type.name));
+
     if (config.create) {
         push("");
         pushComment([
