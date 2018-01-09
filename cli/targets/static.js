@@ -451,7 +451,7 @@ function buildType(ref, type) {
         "@memberof " + exportName(type),
         "@instance"
     ]);
-    push(escapeName(type.name) + ".prototype.$type = " + escapeName(type.name));
+    push(escapeName(type.name) + ".prototype.$type = " + escapeName(type.name) + ";");
 
     push("");
     pushComment([
@@ -460,7 +460,7 @@ function buildType(ref, type) {
         "@memberof " + exportName(type),
         "@static"
     ]);
-    push(escapeName(type.name) + ".$type = " + escapeName(type.name));
+    push(escapeName(type.name) + ".$type = " + escapeName(type.name) + ";");
 
     if (config.create) {
         push("");
